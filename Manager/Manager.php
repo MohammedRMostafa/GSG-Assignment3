@@ -1,6 +1,6 @@
 <?php
 
-namespace Run;
+namespace Manager;
 
 include "../Log/Log.php";
 include "../classes/Student.php";
@@ -62,42 +62,3 @@ class Manager
         }
     }
 }
-
-$student1 = new Student;
-$student1->name = "Mohammed";
-$student1->email = "Mohammed@gmail.com";
-$student1->courses = ["PHP", "Python"];
-
-$student2 = new Student;
-$student2->name = "Ahmed";
-$student2->email = "Ahmed@gmail.com";
-$student2->courses = ["Js", "Node"];
-
-
-Manager::addStudent($student1);
-Manager::addStudent($student2);
-
-$student3 = Manager::get_student_by_id(1);
-
-Manager::delete_student_by_id(1);
-
-$student4 = clone Manager::get_student_by_id(2);
-$student4->name = "Omar";
-$student4->email = "Omar@gmail.com";
-Manager::update($student4);
-
-Manager::delete_student_by_id(2);
-
-
-echo "<pre>";
-print_r($student1);
-
-print_r($student2);
-
-print_r($student3);
-
-print_r($student4);
-
-print_r(Manager::$students);
-
-echo "</pre>";
